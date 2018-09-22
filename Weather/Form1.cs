@@ -20,7 +20,6 @@ namespace Weather
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             labelCityResult.Text = textBoxSearch.Text;
-            labelCityResult.Text = textBoxSearch.Text;//test
         }
 
     }
