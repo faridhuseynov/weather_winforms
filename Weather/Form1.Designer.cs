@@ -570,7 +570,7 @@
             this.labelAddedCities.Name = "labelAddedCities";
             this.labelAddedCities.Size = new System.Drawing.Size(621, 38);
             this.labelAddedCities.TabIndex = 0;
-            this.labelAddedCities.Text = "Added Cities";
+            this.labelAddedCities.Text = "Searched Cities";
             this.labelAddedCities.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // comboBox1

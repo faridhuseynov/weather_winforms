@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,8 +24,10 @@ namespace Weather
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             var chosen_city = textBoxSearch.Text;
-            var json = webClient.DownloadData($"http://api.openweathermap.org/data/2.5/forecast?q={chosen_city}&apikey=9542671897d09d6cd3bbd8b596398433&units=metric");
-            labelCityResult.Text = textBoxSearch.Text;
+            var json = webClient.DownloadString($"http://api.openweathermap.org/data/2.5/forecast?q={chosen_city}&apikey=9542671897d09d6cd3bbd8b596398433&units=metric");
+            var result = JsonConvert.DeserializeObject(json) as JObject;
+            var city = result["city"]["name"].ToString() +", "+ result["city"]["country"].ToString();
+            labelCityResult.Text = city;
         }
         
     }
