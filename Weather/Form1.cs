@@ -21,6 +21,6 @@ namespace Weather
         {
             labelCityResult.Text = textBoxSearch.Text;
         }
-
+        
     }
 }
