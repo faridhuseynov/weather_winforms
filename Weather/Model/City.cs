@@ -16,5 +16,9 @@ namespace Weather.Model
         public string Barometer { get; set; }
         public string Humidity { get; set; }
         public string Wind { get; set; }
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }
