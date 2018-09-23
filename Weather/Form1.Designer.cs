@@ -301,7 +301,6 @@
             this.labelDegreeResult.Name = "labelDegreeResult";
             this.labelDegreeResult.Size = new System.Drawing.Size(75, 49);
             this.labelDegreeResult.TabIndex = 1;
-            this.labelDegreeResult.Text = "21";
             this.labelDegreeResult.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pictureBoxWeather
@@ -341,7 +340,6 @@
             this.labelWeatherDescription.Name = "labelWeatherDescription";
             this.labelWeatherDescription.Size = new System.Drawing.Size(673, 23);
             this.labelWeatherDescription.TabIndex = 0;
-            this.labelWeatherDescription.Text = "WeatherDescription";
             this.labelWeatherDescription.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tableLayoutPanel11
@@ -406,13 +404,12 @@
             // 
             this.labelBarometerValue.AutoSize = true;
             this.labelBarometerValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelBarometerValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBarometerValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBarometerValue.Location = new System.Drawing.Point(138, 0);
             this.labelBarometerValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelBarometerValue.Name = "labelBarometerValue";
             this.labelBarometerValue.Size = new System.Drawing.Size(41, 19);
             this.labelBarometerValue.TabIndex = 2;
-            this.labelBarometerValue.Text = "1020";
             this.labelBarometerValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
@@ -438,7 +435,6 @@
             this.labelHumidityValue.Name = "labelHumidityValue";
             this.labelHumidityValue.Size = new System.Drawing.Size(41, 19);
             this.labelHumidityValue.TabIndex = 4;
-            this.labelHumidityValue.Text = "54";
             this.labelHumidityValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelHumidityPercentage
@@ -479,7 +475,6 @@
             this.labelWindValue.Name = "labelWindValue";
             this.labelWindValue.Size = new System.Drawing.Size(41, 19);
             this.labelWindValue.TabIndex = 7;
-            this.labelWindValue.Text = "4";
             this.labelWindValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelWindUnit

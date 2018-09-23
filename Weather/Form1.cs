@@ -46,7 +46,7 @@ namespace Weather
             labelWeatherDescription.Text = SearchedCities[city_index].WeatherDescription;
             pictureBoxWeather.ImageLocation = $"http://openweathermap.org/img/w/{SearchedCities[city_index].WeatherIcon}.png";
             labelWindValue.Text = SearchedCities[city_index].Wind;
-
+            labelHumidityValue.Text = SearchedCities[city_index].Humidity;
         }
         private void buttonSearch_Click(object sender, EventArgs e)
         {
