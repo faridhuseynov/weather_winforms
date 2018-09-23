@@ -34,6 +34,7 @@ namespace Weather
                 day.WeatherDescription= result["list"][i]["weather"][0]["description"].ToString();
                 SearchedCities[city_index].days.Insert(0, day);
             }
+            SearchedCities[city_index].days.Reverse();
         }
         void SetWindowDays()
         {

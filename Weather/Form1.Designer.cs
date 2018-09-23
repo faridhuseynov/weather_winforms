@@ -311,7 +311,7 @@
             // 
             this.labelWeatherDescription.AutoSize = true;
             this.labelWeatherDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelWeatherDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWeatherDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWeatherDescription.Location = new System.Drawing.Point(0, 0);
             this.labelWeatherDescription.Margin = new System.Windows.Forms.Padding(0);
             this.labelWeatherDescription.Name = "labelWeatherDescription";
