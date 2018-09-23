@@ -34,12 +34,13 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.labelCityResult = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.labelDegree = new System.Windows.Forms.Label();
             this.labelDegreeResult = new System.Windows.Forms.Label();
             this.pictureBoxWeather = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelCelsius = new System.Windows.Forms.Label();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.labelWeatherDescription = new System.Windows.Forms.Label();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
@@ -53,7 +54,6 @@
             this.labelWindValue = new System.Windows.Forms.Label();
             this.labelWindUnit = new System.Windows.Forms.Label();
             this.labelDaily = new System.Windows.Forms.Label();
-            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.labelDay1 = new System.Windows.Forms.Label();
             this.labelDay2 = new System.Windows.Forms.Label();
@@ -82,16 +82,15 @@
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.labelAddedCities = new System.Windows.Forms.Label();
             this.comboBoxSearchedCities = new System.Windows.Forms.ComboBox();
-            this.labelCelsius = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWeather)).BeginInit();
+            this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
@@ -126,7 +125,6 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel14, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel15, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 28);
@@ -202,19 +200,6 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(677, 49);
             this.tableLayoutPanel6.TabIndex = 2;
             // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 1;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Controls.Add(this.labelCelsius, 0, 0);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(340, 2);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(2);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(50, 45);
-            this.tableLayoutPanel7.TabIndex = 0;
-            // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 3;
@@ -283,6 +268,29 @@
             this.pictureBoxWeather.TabIndex = 2;
             this.pictureBoxWeather.TabStop = false;
             // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 1;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.labelCelsius, 0, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(340, 2);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(50, 45);
+            this.tableLayoutPanel7.TabIndex = 0;
+            // 
+            // labelCelsius
+            // 
+            this.labelCelsius.AutoSize = true;
+            this.labelCelsius.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCelsius.Location = new System.Drawing.Point(3, 0);
+            this.labelCelsius.Name = "labelCelsius";
+            this.labelCelsius.Size = new System.Drawing.Size(34, 31);
+            this.labelCelsius.TabIndex = 0;
+            this.labelCelsius.Text = "C";
+            // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.ColumnCount = 1;
@@ -322,7 +330,7 @@
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.tableLayoutPanel11.Controls.Add(this.labelBarometerUnit, 2, 0);
             this.tableLayoutPanel11.Controls.Add(this.labelBarometer, 0, 0);
             this.tableLayoutPanel11.Controls.Add(this.labelBarometerValue, 1, 0);
@@ -389,7 +397,7 @@
             this.label2.Location = new System.Drawing.Point(217, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 19);
+            this.label2.Size = new System.Drawing.Size(130, 19);
             this.label2.TabIndex = 3;
             this.label2.Text = "Humidity";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -398,8 +406,8 @@
             // 
             this.labelHumidityValue.AutoSize = true;
             this.labelHumidityValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelHumidityValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHumidityValue.Location = new System.Drawing.Point(352, 0);
+            this.labelHumidityValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHumidityValue.Location = new System.Drawing.Point(351, 0);
             this.labelHumidityValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelHumidityValue.Name = "labelHumidityValue";
             this.labelHumidityValue.Size = new System.Drawing.Size(41, 19);
@@ -411,7 +419,7 @@
             this.labelHumidityPercentage.AutoSize = true;
             this.labelHumidityPercentage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelHumidityPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHumidityPercentage.Location = new System.Drawing.Point(397, 0);
+            this.labelHumidityPercentage.Location = new System.Drawing.Point(396, 0);
             this.labelHumidityPercentage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelHumidityPercentage.Name = "labelHumidityPercentage";
             this.labelHumidityPercentage.Size = new System.Drawing.Size(31, 19);
@@ -424,7 +432,7 @@
             this.labelWind.AutoSize = true;
             this.labelWind.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelWind.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWind.Location = new System.Drawing.Point(432, 0);
+            this.labelWind.Location = new System.Drawing.Point(431, 0);
             this.labelWind.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWind.Name = "labelWind";
             this.labelWind.Size = new System.Drawing.Size(131, 19);
@@ -438,8 +446,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelWindValue.AutoSize = true;
-            this.labelWindValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWindValue.Location = new System.Drawing.Point(567, 0);
+            this.labelWindValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWindValue.Location = new System.Drawing.Point(566, 0);
             this.labelWindValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWindValue.Name = "labelWindValue";
             this.labelWindValue.Size = new System.Drawing.Size(41, 19);
@@ -451,10 +459,10 @@
             this.labelWindUnit.AutoSize = true;
             this.labelWindUnit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelWindUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWindUnit.Location = new System.Drawing.Point(610, 0);
+            this.labelWindUnit.Location = new System.Drawing.Point(609, 0);
             this.labelWindUnit.Margin = new System.Windows.Forms.Padding(0);
             this.labelWindUnit.Name = "labelWindUnit";
-            this.labelWindUnit.Size = new System.Drawing.Size(59, 19);
+            this.labelWindUnit.Size = new System.Drawing.Size(60, 19);
             this.labelWindUnit.TabIndex = 8;
             this.labelWindUnit.Text = "km/h";
             this.labelWindUnit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -471,21 +479,6 @@
             this.labelDaily.TabIndex = 4;
             this.labelDaily.Text = "Daily";
             this.labelDaily.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel14
-            // 
-            this.tableLayoutPanel14.ColumnCount = 2;
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel14.Location = new System.Drawing.Point(2, 255);
-            this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(2);
-            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
-            this.tableLayoutPanel14.RowCount = 2;
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(673, 98);
-            this.tableLayoutPanel14.TabIndex = 1;
             // 
             // tableLayoutPanel15
             // 
@@ -545,52 +538,48 @@
             // 
             this.labelDay2.AutoSize = true;
             this.labelDay2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDay2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDay2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDay2.Location = new System.Drawing.Point(136, 0);
             this.labelDay2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDay2.Name = "labelDay2";
             this.labelDay2.Size = new System.Drawing.Size(130, 24);
             this.labelDay2.TabIndex = 1;
-            this.labelDay2.Text = "label3";
             this.labelDay2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelDay3
             // 
             this.labelDay3.AutoSize = true;
             this.labelDay3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDay3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDay3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDay3.Location = new System.Drawing.Point(270, 0);
             this.labelDay3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDay3.Name = "labelDay3";
             this.labelDay3.Size = new System.Drawing.Size(130, 24);
             this.labelDay3.TabIndex = 2;
-            this.labelDay3.Text = "label1";
             this.labelDay3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelDay4
             // 
             this.labelDay4.AutoSize = true;
             this.labelDay4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDay4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDay4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDay4.Location = new System.Drawing.Point(404, 0);
             this.labelDay4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDay4.Name = "labelDay4";
             this.labelDay4.Size = new System.Drawing.Size(130, 24);
             this.labelDay4.TabIndex = 3;
-            this.labelDay4.Text = "label1";
             this.labelDay4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelDay5
             // 
             this.labelDay5.AutoSize = true;
             this.labelDay5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDay5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDay5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDay5.Location = new System.Drawing.Point(538, 0);
             this.labelDay5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDay5.Name = "labelDay5";
             this.labelDay5.Size = new System.Drawing.Size(133, 24);
             this.labelDay5.TabIndex = 4;
-            this.labelDay5.Text = "label1";
             this.labelDay5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBoxDay1
@@ -603,6 +592,7 @@
             this.pictureBoxDay1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxDay1.Name = "pictureBoxDay1";
             this.pictureBoxDay1.Size = new System.Drawing.Size(130, 20);
+            this.pictureBoxDay1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxDay1.TabIndex = 7;
             this.pictureBoxDay1.TabStop = false;
             // 
@@ -615,6 +605,7 @@
             this.pictureBoxDay2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxDay2.Name = "pictureBoxDay2";
             this.pictureBoxDay2.Size = new System.Drawing.Size(130, 20);
+            this.pictureBoxDay2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxDay2.TabIndex = 8;
             this.pictureBoxDay2.TabStop = false;
             // 
@@ -625,6 +616,7 @@
             this.pictureBoxDay3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxDay3.Name = "pictureBoxDay3";
             this.pictureBoxDay3.Size = new System.Drawing.Size(130, 20);
+            this.pictureBoxDay3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxDay3.TabIndex = 9;
             this.pictureBoxDay3.TabStop = false;
             // 
@@ -635,6 +627,7 @@
             this.pictureBoxDay4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxDay4.Name = "pictureBoxDay4";
             this.pictureBoxDay4.Size = new System.Drawing.Size(130, 20);
+            this.pictureBoxDay4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxDay4.TabIndex = 10;
             this.pictureBoxDay4.TabStop = false;
             // 
@@ -645,6 +638,7 @@
             this.pictureBoxDay5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxDay5.Name = "pictureBoxDay5";
             this.pictureBoxDay5.Size = new System.Drawing.Size(133, 20);
+            this.pictureBoxDay5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxDay5.TabIndex = 11;
             this.pictureBoxDay5.TabStop = false;
             // 
@@ -658,7 +652,6 @@
             this.labelTempDay1.Name = "labelTempDay1";
             this.labelTempDay1.Size = new System.Drawing.Size(130, 24);
             this.labelTempDay1.TabIndex = 14;
-            this.labelTempDay1.Text = "label1";
             this.labelTempDay1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelTempDay2
@@ -671,7 +664,6 @@
             this.labelTempDay2.Name = "labelTempDay2";
             this.labelTempDay2.Size = new System.Drawing.Size(130, 24);
             this.labelTempDay2.TabIndex = 15;
-            this.labelTempDay2.Text = "label1";
             this.labelTempDay2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelTempDay3
@@ -684,7 +676,6 @@
             this.labelTempDay3.Name = "labelTempDay3";
             this.labelTempDay3.Size = new System.Drawing.Size(130, 24);
             this.labelTempDay3.TabIndex = 16;
-            this.labelTempDay3.Text = "label1";
             this.labelTempDay3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelTempDay4
@@ -697,7 +688,6 @@
             this.labelTempDay4.Name = "labelTempDay4";
             this.labelTempDay4.Size = new System.Drawing.Size(130, 24);
             this.labelTempDay4.TabIndex = 17;
-            this.labelTempDay4.Text = "label1";
             this.labelTempDay4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelTempDay5
@@ -710,7 +700,6 @@
             this.labelTempDay5.Name = "labelTempDay5";
             this.labelTempDay5.Size = new System.Drawing.Size(133, 24);
             this.labelTempDay5.TabIndex = 18;
-            this.labelTempDay5.Text = "label1";
             this.labelTempDay5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelWeatherDay1
@@ -722,7 +711,6 @@
             this.labelWeatherDay1.Name = "labelWeatherDay1";
             this.labelWeatherDay1.Size = new System.Drawing.Size(130, 25);
             this.labelWeatherDay1.TabIndex = 21;
-            this.labelWeatherDay1.Text = "Mostly Sunny";
             this.labelWeatherDay1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelWeatherDay2
@@ -734,7 +722,6 @@
             this.labelWeatherDay2.Name = "labelWeatherDay2";
             this.labelWeatherDay2.Size = new System.Drawing.Size(130, 25);
             this.labelWeatherDay2.TabIndex = 22;
-            this.labelWeatherDay2.Text = "label1";
             this.labelWeatherDay2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelWeatherDay3
@@ -746,7 +733,6 @@
             this.labelWeatherDay3.Name = "labelWeatherDay3";
             this.labelWeatherDay3.Size = new System.Drawing.Size(130, 25);
             this.labelWeatherDay3.TabIndex = 23;
-            this.labelWeatherDay3.Text = "label1";
             this.labelWeatherDay3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelWeatherDay4
@@ -758,7 +744,6 @@
             this.labelWeatherDay4.Name = "labelWeatherDay4";
             this.labelWeatherDay4.Size = new System.Drawing.Size(130, 25);
             this.labelWeatherDay4.TabIndex = 24;
-            this.labelWeatherDay4.Text = "label1";
             this.labelWeatherDay4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelWeatherDay5
@@ -770,7 +755,6 @@
             this.labelWeatherDay5.Name = "labelWeatherDay5";
             this.labelWeatherDay5.Size = new System.Drawing.Size(133, 25);
             this.labelWeatherDay5.TabIndex = 25;
-            this.labelWeatherDay5.Text = "label1";
             this.labelWeatherDay5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel4
@@ -866,16 +850,6 @@
             this.comboBoxSearchedCities.Size = new System.Drawing.Size(113, 21);
             this.comboBoxSearchedCities.TabIndex = 1;
             // 
-            // labelCelsius
-            // 
-            this.labelCelsius.AutoSize = true;
-            this.labelCelsius.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCelsius.Location = new System.Drawing.Point(3, 0);
-            this.labelCelsius.Name = "labelCelsius";
-            this.labelCelsius.Size = new System.Drawing.Size(34, 31);
-            this.labelCelsius.TabIndex = 0;
-            this.labelCelsius.Text = "C";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -894,13 +868,13 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWeather)).EndInit();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
             this.tableLayoutPanel11.ResumeLayout(false);
@@ -955,7 +929,6 @@
         private System.Windows.Forms.Label labelAddedCities;
         private System.Windows.Forms.ComboBox comboBoxSearchedCities;
         private System.Windows.Forms.Label labelDaily;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private System.Windows.Forms.Label labelDay1;
         private System.Windows.Forms.Label labelDay2;

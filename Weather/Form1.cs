@@ -25,7 +25,7 @@ namespace Weather
         List<City> SearchedCities = new List<City>();
         void SetDaysInfo(JObject result)
         {
-            for (int i = 0,j=0; i < Int32.Parse(result["cnt"].ToString())-8; i+=8,++j)
+            for (int i = 0,j=0; i <= Int32.Parse(result["cnt"].ToString())-8; i+=8,++j)
             {
                 Model.Day day = new Model.Day();
                 day.Date = DateTime.Today.AddSeconds(j*86400);
@@ -37,10 +37,31 @@ namespace Weather
         }
         void SetWindowDays()
         {
+            //day1
             labelDay1.Text = SearchedCities[city_index].days[0].Date.DayOfWeek.ToString() +", "+ SearchedCities[city_index].days[0].Date.Day.ToString();
             labelTempDay1.Text = SearchedCities[city_index].days[0].Temperature;
             labelWeatherDay1.Text = SearchedCities[city_index].days[0].WeatherDescription;
             pictureBoxDay1.ImageLocation = $"http://openweathermap.org/img/w/{SearchedCities[city_index].days[0].Icon}.png";
+            //day2
+            labelDay2.Text = SearchedCities[city_index].days[1].Date.DayOfWeek.ToString() + ", " + SearchedCities[city_index].days[1].Date.Day.ToString();
+            labelTempDay2.Text = SearchedCities[city_index].days[1].Temperature;
+            labelWeatherDay2.Text = SearchedCities[city_index].days[1].WeatherDescription;
+            pictureBoxDay2.ImageLocation = $"http://openweathermap.org/img/w/{SearchedCities[city_index].days[1].Icon}.png";
+            //day3
+            labelDay3.Text = SearchedCities[city_index].days[2].Date.DayOfWeek.ToString() + ", " + SearchedCities[city_index].days[2].Date.Day.ToString();
+            labelTempDay3.Text = SearchedCities[city_index].days[2].Temperature;
+            labelWeatherDay3.Text = SearchedCities[city_index].days[2].WeatherDescription;
+            pictureBoxDay3.ImageLocation = $"http://openweathermap.org/img/w/{SearchedCities[city_index].days[2].Icon}.png";
+            //day4
+            labelDay4.Text = SearchedCities[city_index].days[3].Date.DayOfWeek.ToString() + ", " + SearchedCities[city_index].days[3].Date.Day.ToString();
+            labelTempDay4.Text = SearchedCities[city_index].days[3].Temperature;
+            labelWeatherDay4.Text = SearchedCities[city_index].days[3].WeatherDescription;
+            pictureBoxDay4.ImageLocation = $"http://openweathermap.org/img/w/{SearchedCities[city_index].days[3].Icon}.png";
+            //day5
+            labelDay5.Text = SearchedCities[city_index].days[4].Date.DayOfWeek.ToString() + ", " + SearchedCities[city_index].days[4].Date.Day.ToString();
+            labelTempDay5.Text = SearchedCities[city_index].days[4].Temperature;
+            labelWeatherDay5.Text = SearchedCities[city_index].days[4].WeatherDescription;
+            pictureBoxDay5.ImageLocation = $"http://openweathermap.org/img/w/{SearchedCities[city_index].days[4].Icon}.png";
         }
         void AddCity(JObject result)
         {
@@ -90,5 +111,6 @@ namespace Weather
                 MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
