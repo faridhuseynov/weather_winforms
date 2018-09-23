@@ -23,12 +23,31 @@ namespace Weather
             InitializeComponent();
         }
         List<City> SearchedCities = new List<City>();
+        void SetDaysInfo(JObject result)
+        {
+            for (int i = 0,j=0; i < Int32.Parse(result["cnt"].ToString())-8; i+=8,++j)
+            {
+                Model.Day day = new Model.Day();
+                day.Date = DateTime.Today.AddSeconds(j*86400);
+                day.Temperature= result["list"][i]["main"]["temp"].ToString();
+                day.Icon=result["list"][i]["weather"][0]["icon"].ToString();
+                day.WeatherDescription= result["list"][i]["weather"][0]["description"].ToString();
+                SearchedCities[city_index].days.Insert(0, day);
+            }
+        }
+        void SetWindowDays()
+        {
+            labelDay1.Text = SearchedCities[city_index].days[0].Date.DayOfWeek.ToString() +", "+ SearchedCities[city_index].days[0].Date.Day.ToString();
+            labelTempDay1.Text = SearchedCities[city_index].days[0].Temperature;
+            labelWeatherDay1.Text = SearchedCities[city_index].days[0].WeatherDescription;
+            pictureBoxDay1.ImageLocation = $"http://openweathermap.org/img/w/{SearchedCities[city_index].days[0].Icon}.png";
+        }
         void AddCity(JObject result)
         {
             City city = new City();
             city.Name = result["city"]["name"].ToString();
             city.Country= result["city"]["country"].ToString();
-            city.Degree = result["list"][0]["main"]["temp"].ToString();
+            city.Temperature = result["list"][0]["main"]["temp"].ToString();
             city.WeatherIcon= result["list"][0]["weather"][0]["icon"].ToString();
             city.WeatherDescription = result["list"][0]["weather"][0]["description"].ToString();
             city.Humidity = result["list"][0]["main"]["humidity"].ToString();
@@ -42,11 +61,12 @@ namespace Weather
         {
             labelCityResult.Text = SearchedCities[city_index].Name + ", " + SearchedCities[city_index].Country;
             labelBarometerValue.Text = SearchedCities[city_index].Barometer;
-            labelDegreeResult.Text = SearchedCities[city_index].Degree;
+            labelDegreeResult.Text = SearchedCities[city_index].Temperature;
             labelWeatherDescription.Text = SearchedCities[city_index].WeatherDescription;
             pictureBoxWeather.ImageLocation = $"http://openweathermap.org/img/w/{SearchedCities[city_index].WeatherIcon}.png";
             labelWindValue.Text = SearchedCities[city_index].Wind;
             labelHumidityValue.Text = SearchedCities[city_index].Humidity;
+            SetWindowDays();
         }
         private void buttonSearch_Click(object sender, EventArgs e)
         {
@@ -60,15 +80,15 @@ namespace Weather
                     throw new Exception("City was not found");
                 }
                 AddCity(result);
+                SetDaysInfo(result);
                 SetWindow(city_index);
                 comboBoxSearchedCities.DataSource = null;
                 comboBoxSearchedCities.DataSource = SearchedCities;
             }
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            finally { };
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
