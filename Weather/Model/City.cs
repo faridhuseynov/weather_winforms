@@ -10,6 +10,11 @@ namespace Weather.Model
     {
         public string Name { get; set; }
         public string Country { get; set; }
-        public int MyProperty { get; set; }
+        public string Degree { get; set; }
+        public string WeatherIcon { get; set; }
+        public string WeatherDescription { get; set; }
+        public string Barometer { get; set; }
+        public string Humidity { get; set; }
+        public string Wind { get; set; }
     }
 }
