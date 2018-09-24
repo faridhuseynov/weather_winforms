@@ -11,18 +11,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Weather.Model;
+using Weather.Presenter;
 
 namespace Weather
 {
-    public partial class Form1 : Form
+    public partial class WeatherView : Form
     {
+        public WeatherPresenter Presenter { get; set; }
         int city_index = -1;
         WebClient webClient = new WebClient();
-        public Form1()
+        public WeatherView(WeatherPresenter presenter)
         {
             InitializeComponent();
+            Presenter = presenter;      
         }
-        List<City> SearchedCities = new List<City>();
         void SetDaysInfo(JObject result)
         {
             for (int i = 0,j=0; i <= Int32.Parse(result["cnt"].ToString())-8; i+=8,++j)
