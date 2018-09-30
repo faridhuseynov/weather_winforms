@@ -84,6 +84,8 @@ namespace Weather
                     Presenter.AddCity(result);
                     comboBoxSearchedCities.DataSource = null;
                     comboBoxSearchedCities.DataSource = Presenter.Storage.GetCities();
+                    int index = comboBoxSearchedCities.FindString(Presenter.Storage.SearchedCities[Presenter.Storage.SearchedCities.Count - 1].ToString());
+                    comboBoxSearchedCities.SelectedIndex = index;
                 }
                 catch (Exception ex)
                 {
@@ -95,9 +97,10 @@ namespace Weather
         private void comboBoxSearchedCities_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = comboBoxSearchedCities.SelectedIndex;
+            if (index < 0)
+                return;
             string chosen_city = Presenter.Storage.SearchedCities[index].Name.ToString();
             Presenter.CheckCity(chosen_city);
-
         }
     }
 }

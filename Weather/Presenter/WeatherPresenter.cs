@@ -18,7 +18,6 @@ namespace Weather.Presenter
         {
             Storage.AddCity(jObject);
             city_index = Storage.SearchedCities.Count-1;
-            View.UpdateDays(Storage.GetCities(), city_index);
         }
         public bool CheckCity (string city){
             int index = 0;
