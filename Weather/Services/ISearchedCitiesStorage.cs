@@ -11,7 +11,6 @@ namespace Weather.Services
     public class ISearchedCitiesStorage : SearchedCity
     {
         public List<City> SearchedCities = new List<City>();
-        public List<Day> Days = new List<Day>();
         public void AddCity(JObject jObject)
         {
             City city = new City();
@@ -23,6 +22,16 @@ namespace Weather.Services
             city.Humidity = jObject["list"][0]["main"]["humidity"].ToString();
             city.Wind = jObject["list"][0]["wind"]["speed"].ToString();
             city.Barometer = jObject["list"][0]["main"]["pressure"].ToString();
+            for (int i = 0, j = 0; i <= Int32.Parse(jObject["cnt"].ToString()) - 8; i += 8, ++j)
+            {
+                Model.Day day = new Model.Day();
+                day.Date = DateTime.Today.AddSeconds(j * 86400);
+                day.Temperature = jObject["list"][i]["main"]["temp"].ToString();
+                day.Icon = jObject["list"][i]["weather"][0]["icon"].ToString();
+                day.WeatherDescription = jObject["list"][i]["weather"][0]["description"].ToString();
+                city.days.Insert(0, day);
+            }
+            city.days.Reverse();
             SearchedCities.Add(city);
         }
 
@@ -31,23 +40,14 @@ namespace Weather.Services
             return SearchedCities;
         }
 
-        public IEnumerable<Day> GetDays()
-        {
-            return Days;
-        }
+        //public IEnumerable<Day> GetDays(int city_index)
+        //{
+        //    return SearchedCities[city_index].days;
+        //}
 
         void SearchedCity.SetDaysInfo( JObject jObject, int city_index)
         {
-            for (int i = 0, j = 0; i <= Int32.Parse(jObject["cnt"].ToString()) - 8; i += 8, ++j)
-            {
-                Model.Day day = new Model.Day();
-                day.Date = DateTime.Today.AddSeconds(j * 86400);
-                day.Temperature = jObject["list"][i]["main"]["temp"].ToString();
-                day.Icon = jObject["list"][i]["weather"][0]["icon"].ToString();
-                day.WeatherDescription = jObject["list"][i]["weather"][0]["description"].ToString();
-                SearchedCities[city_index].days.Insert(0, day);
-            }
-            SearchedCities[city_index].days.Reverse();
+           
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Weather
 
             var weatherPresenter = new WeatherPresenter();
             var weatherView = new WeatherView(weatherPresenter);
+            weatherPresenter.View = weatherView;
             Application.Run(weatherView);
         }
     }

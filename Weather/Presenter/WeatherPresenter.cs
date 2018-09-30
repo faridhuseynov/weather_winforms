@@ -13,13 +13,27 @@ namespace Weather.Presenter
     {
         public int city_index = -1;
         public WeatherView View { get; set; }
-        public ISearchedCitiesStorage Storage { get; set; }
+        public ISearchedCitiesStorage Storage { get; set; } = new ISearchedCitiesStorage();
         public void AddCity(JObject jObject)
         {
             Storage.AddCity(jObject);
             city_index = Storage.SearchedCities.Count-1;
-            View.UpdateDays(Storage.GetCities(),city_index);
+            View.UpdateDays(Storage.GetCities(), city_index);
         }
- 
+        public bool CheckCity (string city){
+            int index = 0;
+            foreach (var item in Storage.SearchedCities)
+            {
+                if (item.Name == city)
+                {
+                    View.UpdateDays(Storage.GetCities(), index);
+                    city_index = index;
+                    return true;
+                }
+                ++index;
+            }
+            return false;
+        }
+
     }
 }

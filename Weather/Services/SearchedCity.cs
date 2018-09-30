@@ -12,7 +12,7 @@ namespace Weather.Services
     {
         void AddCity(JObject jObject);
         IEnumerable<City> GetCities();
-        IEnumerable<Day> GetDays();
+        //IEnumerable<Day> GetDays(int city_index);
         void SetDaysInfo(JObject jObject, int city_index);
     }
 }

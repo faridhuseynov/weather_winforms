@@ -65,24 +65,39 @@ namespace Weather
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            try
+            var chosen_city = textBoxSearch.Text;
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(chosen_city[0].ToString().ToUpper());
+            for (int i = 1; i < chosen_city.Count(); i++)
             {
-                var chosen_city = textBoxSearch.Text;
-                var json = webClient.DownloadString($"http://api.openweathermap.org/data/2.5/forecast?q={chosen_city}&apikey=9542671897d09d6cd3bbd8b596398433&units=metric");
-                var result = JsonConvert.DeserializeObject(json) as JObject;
-                if (result["cod"].ToString() == "404")
-                {
-                    throw new Exception("City was not found");
-                }
-                Presenter.AddCity(result);
-                comboBoxSearchedCities.DataSource = null;
-                //comboBoxSearchedCities.DataSource = SearchedCities;
+                stringBuilder.Append(chosen_city[i]);
             }
-            catch (Exception ex)
+            var searched_city = stringBuilder.ToString();
+            if (Presenter.CheckCity(searched_city) == true)
+                comboBoxSearchedCities.SelectedIndex = Presenter.city_index;
+            else
             {
-                MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    var json = webClient.DownloadString($"http://api.openweathermap.org/data/2.5/forecast?q={chosen_city}&apikey=9542671897d09d6cd3bbd8b596398433&units=metric");
+                    var result = JsonConvert.DeserializeObject(json) as JObject;
+                    Presenter.AddCity(result);
+                    comboBoxSearchedCities.DataSource = null;
+                    comboBoxSearchedCities.DataSource = Presenter.Storage.GetCities();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
+        private void comboBoxSearchedCities_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = comboBoxSearchedCities.SelectedIndex;
+            string chosen_city = Presenter.Storage.SearchedCities[index].Name.ToString();
+            Presenter.CheckCity(chosen_city);
+
+        }
     }
 }

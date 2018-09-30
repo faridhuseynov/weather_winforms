@@ -331,7 +331,7 @@
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel11.Controls.Add(this.labelBarometerUnit, 2, 0);
             this.tableLayoutPanel11.Controls.Add(this.labelBarometer, 0, 0);
             this.tableLayoutPanel11.Controls.Add(this.labelBarometerValue, 1, 0);
@@ -398,7 +398,7 @@
             this.label2.Location = new System.Drawing.Point(430, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(258, 36);
+            this.label2.Size = new System.Drawing.Size(257, 36);
             this.label2.TabIndex = 3;
             this.label2.Text = "Humidity";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -408,7 +408,7 @@
             this.labelHumidityValue.AutoSize = true;
             this.labelHumidityValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelHumidityValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHumidityValue.Location = new System.Drawing.Point(696, 0);
+            this.labelHumidityValue.Location = new System.Drawing.Point(695, 0);
             this.labelHumidityValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHumidityValue.Name = "labelHumidityValue";
             this.labelHumidityValue.Size = new System.Drawing.Size(82, 36);
@@ -420,7 +420,7 @@
             this.labelHumidityPercentage.AutoSize = true;
             this.labelHumidityPercentage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelHumidityPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHumidityPercentage.Location = new System.Drawing.Point(786, 0);
+            this.labelHumidityPercentage.Location = new System.Drawing.Point(785, 0);
             this.labelHumidityPercentage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHumidityPercentage.Name = "labelHumidityPercentage";
             this.labelHumidityPercentage.Size = new System.Drawing.Size(62, 36);
@@ -433,7 +433,7 @@
             this.labelWind.AutoSize = true;
             this.labelWind.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelWind.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWind.Location = new System.Drawing.Point(856, 0);
+            this.labelWind.Location = new System.Drawing.Point(855, 0);
             this.labelWind.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelWind.Name = "labelWind";
             this.labelWind.Size = new System.Drawing.Size(258, 36);
@@ -448,7 +448,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelWindValue.AutoSize = true;
             this.labelWindValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWindValue.Location = new System.Drawing.Point(1122, 0);
+            this.labelWindValue.Location = new System.Drawing.Point(1121, 0);
             this.labelWindValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelWindValue.Name = "labelWindValue";
             this.labelWindValue.Size = new System.Drawing.Size(82, 36);
@@ -460,10 +460,10 @@
             this.labelWindUnit.AutoSize = true;
             this.labelWindUnit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelWindUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWindUnit.Location = new System.Drawing.Point(1208, 0);
+            this.labelWindUnit.Location = new System.Drawing.Point(1207, 0);
             this.labelWindUnit.Margin = new System.Windows.Forms.Padding(0);
             this.labelWindUnit.Name = "labelWindUnit";
-            this.labelWindUnit.Size = new System.Drawing.Size(130, 36);
+            this.labelWindUnit.Size = new System.Drawing.Size(131, 36);
             this.labelWindUnit.TabIndex = 8;
             this.labelWindUnit.Text = "km/h";
             this.labelWindUnit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -850,6 +850,7 @@
             this.comboBoxSearchedCities.Name = "comboBoxSearchedCities";
             this.comboBoxSearchedCities.Size = new System.Drawing.Size(226, 33);
             this.comboBoxSearchedCities.TabIndex = 1;
+            this.comboBoxSearchedCities.SelectedIndexChanged += new System.EventHandler(this.comboBoxSearchedCities_SelectedIndexChanged);
             // 
             // WeatherView
             // 
