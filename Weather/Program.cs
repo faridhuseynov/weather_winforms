@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Weather.Presenter;
 
 namespace Weather
 {
@@ -16,7 +17,10 @@ namespace Weather
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WeatherView());
+
+            var weatherPresenter = new WeatherPresenter();
+            var weatherView = new WeatherView(weatherPresenter);
+            Application.Run(weatherView);
         }
     }
 }

@@ -12,86 +12,57 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Weather.Model;
 using Weather.Presenter;
+using Weather.Services;
 
 namespace Weather
 {
     public partial class WeatherView : Form
     {
         public WeatherPresenter Presenter { get; set; }
-        int city_index = -1;
         WebClient webClient = new WebClient();
         public WeatherView(WeatherPresenter presenter)
         {
             InitializeComponent();
             Presenter = presenter;      
         }
-        void SetDaysInfo(JObject result)
+        public void UpdateDays(IEnumerable<City> SearchedCities, int city_index)
         {
-            for (int i = 0,j=0; i <= Int32.Parse(result["cnt"].ToString())-8; i+=8,++j)
-            {
-                Model.Day day = new Model.Day();
-                day.Date = DateTime.Today.AddSeconds(j*86400);
-                day.Temperature= result["list"][i]["main"]["temp"].ToString();
-                day.Icon=result["list"][i]["weather"][0]["icon"].ToString();
-                day.WeatherDescription= result["list"][i]["weather"][0]["description"].ToString();
-                SearchedCities[city_index].days.Insert(0, day);
-            }
-            SearchedCities[city_index].days.Reverse();
-        }
-        void SetWindowDays()
-        {
+            //searched day result
+            var list = SearchedCities.ToList();
+            labelCityResult.Text = list[city_index].Name + ", " + list[city_index].Country;
+            labelBarometerValue.Text = list[city_index].Barometer;
+            labelDegreeResult.Text = list[city_index].Temperature;
+            labelWeatherDescription.Text = list[city_index].WeatherDescription;
+            pictureBoxWeather.ImageLocation = $"http://openweathermap.org/img/w/{list[city_index].WeatherIcon}.png";
+            labelWindValue.Text = list[city_index].Wind;
+            labelHumidityValue.Text = list[city_index].Humidity;
             //day1
-            labelDay1.Text = SearchedCities[city_index].days[0].Date.DayOfWeek.ToString() +", "+ SearchedCities[city_index].days[0].Date.Day.ToString();
-            labelTempDay1.Text = SearchedCities[city_index].days[0].Temperature;
-            labelWeatherDay1.Text = SearchedCities[city_index].days[0].WeatherDescription;
-            pictureBoxDay1.ImageLocation = $"http://openweathermap.org/img/w/{SearchedCities[city_index].days[0].Icon}.png";
+            labelDay1.Text = list[city_index].days[0].Date.DayOfWeek.ToString() +", "+ list[city_index].days[0].Date.Day.ToString();
+            labelTempDay1.Text = list[city_index].days[0].Temperature;
+            labelWeatherDay1.Text = list[city_index].days[0].WeatherDescription;
+            pictureBoxDay1.ImageLocation = $"http://openweathermap.org/img/w/{list[city_index].days[0].Icon}.png";
             //day2
-            labelDay2.Text = SearchedCities[city_index].days[1].Date.DayOfWeek.ToString() + ", " + SearchedCities[city_index].days[1].Date.Day.ToString();
-            labelTempDay2.Text = SearchedCities[city_index].days[1].Temperature;
-            labelWeatherDay2.Text = SearchedCities[city_index].days[1].WeatherDescription;
-            pictureBoxDay2.ImageLocation = $"http://openweathermap.org/img/w/{SearchedCities[city_index].days[1].Icon}.png";
+            labelDay2.Text = list[city_index].days[1].Date.DayOfWeek.ToString() + ", " + list[city_index].days[1].Date.Day.ToString();
+            labelTempDay2.Text = list[city_index].days[1].Temperature;
+            labelWeatherDay2.Text = list[city_index].days[1].WeatherDescription;
+            pictureBoxDay2.ImageLocation = $"http://openweathermap.org/img/w/{list[city_index].days[1].Icon}.png";
             //day3
-            labelDay3.Text = SearchedCities[city_index].days[2].Date.DayOfWeek.ToString() + ", " + SearchedCities[city_index].days[2].Date.Day.ToString();
-            labelTempDay3.Text = SearchedCities[city_index].days[2].Temperature;
-            labelWeatherDay3.Text = SearchedCities[city_index].days[2].WeatherDescription;
-            pictureBoxDay3.ImageLocation = $"http://openweathermap.org/img/w/{SearchedCities[city_index].days[2].Icon}.png";
+            labelDay3.Text = list[city_index].days[2].Date.DayOfWeek.ToString() + ", " + list[city_index].days[2].Date.Day.ToString();
+            labelTempDay3.Text = list[city_index].days[2].Temperature;
+            labelWeatherDay3.Text = list[city_index].days[2].WeatherDescription;
+            pictureBoxDay3.ImageLocation = $"http://openweathermap.org/img/w/{list[city_index].days[2].Icon}.png";
             //day4
-            labelDay4.Text = SearchedCities[city_index].days[3].Date.DayOfWeek.ToString() + ", " + SearchedCities[city_index].days[3].Date.Day.ToString();
-            labelTempDay4.Text = SearchedCities[city_index].days[3].Temperature;
-            labelWeatherDay4.Text = SearchedCities[city_index].days[3].WeatherDescription;
-            pictureBoxDay4.ImageLocation = $"http://openweathermap.org/img/w/{SearchedCities[city_index].days[3].Icon}.png";
+            labelDay4.Text = list[city_index].days[3].Date.DayOfWeek.ToString() + ", " + list[city_index].days[3].Date.Day.ToString();
+            labelTempDay4.Text = list[city_index].days[3].Temperature;
+            labelWeatherDay4.Text = list[city_index].days[3].WeatherDescription;
+            pictureBoxDay4.ImageLocation = $"http://openweathermap.org/img/w/{list[city_index].days[3].Icon}.png";
             //day5
-            labelDay5.Text = SearchedCities[city_index].days[4].Date.DayOfWeek.ToString() + ", " + SearchedCities[city_index].days[4].Date.Day.ToString();
-            labelTempDay5.Text = SearchedCities[city_index].days[4].Temperature;
-            labelWeatherDay5.Text = SearchedCities[city_index].days[4].WeatherDescription;
-            pictureBoxDay5.ImageLocation = $"http://openweathermap.org/img/w/{SearchedCities[city_index].days[4].Icon}.png";
+            labelDay5.Text = list[city_index].days[4].Date.DayOfWeek.ToString() + ", " + list[city_index].days[4].Date.Day.ToString();
+            labelTempDay5.Text = list[city_index].days[4].Temperature;
+            labelWeatherDay5.Text = list[city_index].days[4].WeatherDescription;
+            pictureBoxDay5.ImageLocation = $"http://openweathermap.org/img/w/{list[city_index].days[4].Icon}.png";
         }
-        void AddCity(JObject result)
-        {
-            City city = new City();
-            city.Name = result["city"]["name"].ToString();
-            city.Country= result["city"]["country"].ToString();
-            city.Temperature = result["list"][0]["main"]["temp"].ToString();
-            city.WeatherIcon= result["list"][0]["weather"][0]["icon"].ToString();
-            city.WeatherDescription = result["list"][0]["weather"][0]["description"].ToString();
-            city.Humidity = result["list"][0]["main"]["humidity"].ToString();
-            city.Wind = result["list"][0]["wind"]["speed"].ToString();
-            city.Barometer = result["list"][0]["main"]["pressure"].ToString();
-            SearchedCities.Add(city);
-            //city.Name= result["city"]["name"].ToString() + ", " + result["city"]["country"].ToString();
-            city_index = SearchedCities.Count - 1;
-        }
-        void SetWindow(int city_index)
-        {
-            labelCityResult.Text = SearchedCities[city_index].Name + ", " + SearchedCities[city_index].Country;
-            labelBarometerValue.Text = SearchedCities[city_index].Barometer;
-            labelDegreeResult.Text = SearchedCities[city_index].Temperature;
-            labelWeatherDescription.Text = SearchedCities[city_index].WeatherDescription;
-            pictureBoxWeather.ImageLocation = $"http://openweathermap.org/img/w/{SearchedCities[city_index].WeatherIcon}.png";
-            labelWindValue.Text = SearchedCities[city_index].Wind;
-            labelHumidityValue.Text = SearchedCities[city_index].Humidity;
-            SetWindowDays();
-        }
+
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             try
@@ -103,11 +74,9 @@ namespace Weather
                 {
                     throw new Exception("City was not found");
                 }
-                AddCity(result);
-                SetDaysInfo(result);
-                SetWindow(city_index);
+                Presenter.AddCity(result);
                 comboBoxSearchedCities.DataSource = null;
-                comboBoxSearchedCities.DataSource = SearchedCities;
+                //comboBoxSearchedCities.DataSource = SearchedCities;
             }
             catch (Exception ex)
             {

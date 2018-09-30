@@ -10,9 +10,9 @@ namespace Weather.Services
 {
     public interface SearchedCity
     {
-        void AddCity(City city);
+        void AddCity(JObject jObject);
         IEnumerable<City> GetCities();
         IEnumerable<Day> GetDays();
-        void SetDays(JObject jObject, int city_index);
+        void SetDaysInfo(JObject jObject, int city_index);
     }
 }

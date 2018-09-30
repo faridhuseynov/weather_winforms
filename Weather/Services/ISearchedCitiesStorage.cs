@@ -10,10 +10,19 @@ namespace Weather.Services
 {
     public class ISearchedCitiesStorage : SearchedCity
     {
-        List<City> SearchedCities = new List<City>();
-        List<Day> Days = new List<Day>();
-        public void AddCity(City city)
+        public List<City> SearchedCities = new List<City>();
+        public List<Day> Days = new List<Day>();
+        public void AddCity(JObject jObject)
         {
+            City city = new City();
+            city.Name = jObject["city"]["name"].ToString();
+            city.Country = jObject["city"]["country"].ToString();
+            city.Temperature = jObject["list"][0]["main"]["temp"].ToString();
+            city.WeatherIcon = jObject["list"][0]["weather"][0]["icon"].ToString();
+            city.WeatherDescription = jObject["list"][0]["weather"][0]["description"].ToString();
+            city.Humidity = jObject["list"][0]["main"]["humidity"].ToString();
+            city.Wind = jObject["list"][0]["wind"]["speed"].ToString();
+            city.Barometer = jObject["list"][0]["main"]["pressure"].ToString();
             SearchedCities.Add(city);
         }
 
@@ -27,7 +36,7 @@ namespace Weather.Services
             return Days;
         }
 
-        void SearchedCity.SetDays( JObject jObject, int city_index)
+        void SearchedCity.SetDaysInfo( JObject jObject, int city_index)
         {
             for (int i = 0, j = 0; i <= Int32.Parse(jObject["cnt"].ToString()) - 8; i += 8, ++j)
             {
