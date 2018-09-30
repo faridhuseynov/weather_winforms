@@ -14,6 +14,7 @@ namespace Weather.Presenter
         public int city_index = -1;
         public WeatherView View { get; set; }
         public ISearchedCitiesStorage Storage { get; set; } = new ISearchedCitiesStorage();
+        public JsonFileSaver Saver = new JsonFileSaver();
         public void AddCity(JObject jObject)
         {
             Storage.AddCity(jObject);
@@ -33,6 +34,13 @@ namespace Weather.Presenter
             }
             return false;
         }
-
+        public void SaveCityList()
+        {
+            Saver.Save(Storage.SearchedCities);
+        }
+        public void LoadCityList()
+        {
+            Saver.Load();
+        }
     }
 }

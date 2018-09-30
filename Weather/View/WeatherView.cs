@@ -102,5 +102,15 @@ namespace Weather
             string chosen_city = Presenter.Storage.SearchedCities[index].Name.ToString();
             Presenter.CheckCity(chosen_city);
         }
+
+        private void WeatherView_Load(object sender, EventArgs e)
+        {
+            Presenter.Storage.SearchedCities = Presenter.Saver.Load().ToList();
+            comboBoxSearchedCities.DataSource = Presenter.Storage.SearchedCities;
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e) {
+            Presenter.Saver.Save(Presenter.Storage.SearchedCities);
+        }
+
     }
 }

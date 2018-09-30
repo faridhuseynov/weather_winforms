@@ -49,8 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presenter\WeatherPresenter.cs" />
+    <Compile Include="Services\IFileSaver.cs" />
     <Compile Include="Services\ISearchedCitiesStorage.cs" />
-    <Compile Include="Services\JsonFileHandler.cs" />
+    <Compile Include="Services\JsonFileSaver.cs" />
     <Compile Include="Services\SearchedCity.cs" />
     <Compile Include="View\WeatherView.cs">
       <SubType>Form</SubType>
